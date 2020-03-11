@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lodash.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="email">
+        <p>input name here</p>
+        <input type="text" id="inputName">
+        <button type="submit" class="btn btn-primary" onclick="validateEmail()">Submit</button>
+    </div>
+
+
+    <script src="debounce.js""></script>
+    <script>    
+    // install lodash - > npm i lodash 
+// document lodash https://www.npmjs.com/package/lodash
+const _ = require('lodash');
+    function validateEmail() {
+    var nameInput = emailInput.value;
+    if(nameInput.length < 5)   {
+        alert('require name > 5 charat')
+    }
+    
+}
+
+var emailInput = document.getElementById("inputName");
+// emailInput.addEventListener("keyup", _.debounce(validateEmail, 500));
+$(emailInput).on('keyup', _.debounce(function (e) {
+    switch (e.keyCode) {
+      case 13:
+            validateEmail()
+    }
+  }, 500));
+    
+    </script>
+
+    </body>
+</html>
